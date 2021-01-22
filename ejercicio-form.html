@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de registro</title>
+  <style>
+    label{
+      display: block;
+      padding: 16px;
+    }
+    label>span{
+      color: darkred;
+      background: lightpink;
+      padding: 6px;
+      border-radius: 3px;
+    }
+    .oculto{
+      display: none;
+    }
+    .con-error{
+      border: 2px solid red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Registro</h1>
+  <form name="registro" action="accion.php" method="GET">
+    <label>
+      Nombre
+      <input name="nombre">
+      <span>El nombre debe contener sólo letras y espacio.</span>
+    </label>
+
+    <label>
+      Email
+      <input name="email">
+      <span>El email debe tener un formato válido.</span>
+    </label>
+
+    <label>
+      Pais
+      <select name="pais">
+        <option value="ninguno">Seleccionar</option>
+      </select>
+      <span>Debes seleccionar un país</span>
+    </label>
+
+    <label>
+      <input type="checkbox" name="terminos">
+      Aceptar <a href="#">Términos y condiciones</a>
+      <span>Debes aceptar los términos para registrarse.</span>
+    </label>
+
+    <button>Registrarse!</button>
+  </form>
+  <script src="validar.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+
+<!--
+  Hola!
+  Tienes una misión. Necesito que escribas el javascript que permita validar el formulario de registro.
+
+  Primero necesito que crees un archivo "validaciones.js" en el que escribirás las funciones:
+  - validarNombre(cadenaNombre) responde boolean
+  - validarEmail(cadenaEmail) responde boolean
+  - validarSelector(valorSeleccionado) responde boolean
+  - validarCheck(nodoCheck) responde boolean
+  Utiliza expresiones regulares si lo deseas.
+
+https://regex101.com/
+https://regexr.com/
+
+  En el html,
+  agrega a cada span la clase "oculto"
+
+  Luego un script app.js que debe:
+  - generar las opciones del selector con el siguiente array:
+    const paises = [{value: "ar", text: "Argentina"}, {value: "br", text: "Brasil"}, {value: "ch", text: "Chile"}];
+  - para cada control, validar el dato ingresado/selecionado por usuario, al perder el foco.
+  - las validaciones anteriores deben utilizar "validaciones.js" para determinar si el campo está correcto, 
+    en caso de error, mostrar el span asociado con el mensaje, y colocar la clase "con-error" al input. (nota: en los checkbox quizás la clase no se muestre pero se agrega)
+  - validar el formulario completo antes de ser enviado. 
+    Se puede decir que si un elemento del formulario tiene la clase "con-error", entonces no hay que enviar el form.
+    Ten en cuenta que alguien podrías pulsar el botón de envío sin llenar nada (sin producir blur).
+ 
+  Sabias que... ?
+  - un nodo puede obtener la referencia de su nodo hermano con el atributo .nextElementSibling
+  mozilla developer network puede contarte más si estás interesado
+
+   Preguntas a Alumni!
+   
+-->
